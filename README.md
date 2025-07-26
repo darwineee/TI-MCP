@@ -1,12 +1,13 @@
 # Threat Intelligence MCP Server
 
-A Model Context Protocol (MCP) server providing threat intelligence tools to help AI assistants with security investigations and analysis.
+A Model Context Protocol (MCP) server providing threat intelligence tools to help AI assistants with security investigations and analysis. Focus on using free tools.
 
 ## Features
 
-- **VirusTotal Integration**: Check file hashes against the VirusTotal database
-- **FastMCP Framework**: Built on the FastMCP framework for easy extensibility
-- **Docker Support**: Containerized deployment ready
+- **VirusTotal Integration**: Check file hashes,URLs,IPs address or domain names against the VirusTotal database.
+- **Shodan Integration**: Get more information about the IP address using Shodan's database.
+- **FastMCP Framework**: Built on the FastMCP framework for easy extensibility.
+- **Docker Support**: Containerized deployment ready.
 
 ## Prerequisites
 

@@ -1,6 +1,7 @@
 from os import getenv
 from fastmcp import FastMCP
 import requests
+from tenacity import retry, stop_after_attempt, wait_fixed
 
 api_key = getenv("VT_API_KEY")
 if not api_key:
@@ -20,6 +21,7 @@ vt_mcp = FastMCP(
     """,
 )
 
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(15))
 @vt_mcp.tool
 def check_hash(hash: str) -> dict:
     """
@@ -40,7 +42,7 @@ def check_hash(hash: str) -> dict:
             "error": f"Failed to retrieve data for hash {hash}. Status code: {response.status_code}"
         }
     
-
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(15))
 @vt_mcp.tool
 def check_url(url: str) -> dict:
     """
@@ -61,7 +63,7 @@ def check_url(url: str) -> dict:
             "error": f"Failed to retrieve data for URL {url}. Status code: {response.status_code}"
         }
     
-
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(15))
 @vt_mcp.tool
 def get_url_report(url: str) -> dict:
     """
@@ -82,6 +84,7 @@ def get_url_report(url: str) -> dict:
             "error": f"Failed to retrieve report for URL {url}. Status code: {response.status_code}"
         }
 
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(15))
 @vt_mcp.tool
 def check_ip(ip: str) -> dict:
     """
@@ -102,6 +105,7 @@ def check_ip(ip: str) -> dict:
             "error": f"Failed to retrieve data for IP {ip}. Status code: {response.status_code}"
         }
 
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(15))
 @vt_mcp.tool
 def check_domain(domain: str) -> dict:
     """
