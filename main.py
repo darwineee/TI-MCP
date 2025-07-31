@@ -27,7 +27,7 @@ async def setup():
         burst_capacity=20
     ))
     await main_mcp.run_async(
-        transport="sse",
+        transport="http",
         host="0.0.0.0",
         port=8081,
     )
