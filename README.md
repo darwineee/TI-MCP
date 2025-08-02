@@ -5,7 +5,7 @@ A Model Context Protocol (MCP) server providing threat intelligence tools to hel
 ## Features
 
 - **VirusTotal Integration**: Check file hashes,URLs,IPs address or domain names against the VirusTotal database.
-- **Shodan Integration**: Get more information about the IP address using Shodan's database.
+- **AbuseIPDB Integration**: Check IP addresses for abuse reports and reputation information from the AbuseIPDB database.
 - **FastMCP Framework**: Built on the FastMCP framework for easy extensibility.
 - **Docker Support**: Containerized deployment ready.
 

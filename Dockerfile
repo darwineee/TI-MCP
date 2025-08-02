@@ -25,7 +25,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY main.py .
 COPY virus_total/ ./virus_total/
-COPY shodan/ ./shodan/
+COPY abuseipdb/ ./abuseipdb/
 
 # Create a non-root user for security
 RUN groupadd -r appuser && useradd -r -g appuser appuser
