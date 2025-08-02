@@ -1,6 +1,7 @@
 from fastmcp import FastMCP
 from dotenv import load_dotenv
 import asyncio
+import os
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 from virus_total.vt import vt_mcp
@@ -12,6 +13,8 @@ main_mcp = FastMCP(
     A server providing threat intelligence tools to help AI assistants for further investigation.
     """,
 )
+
+LOG_LEVEL = os.getenv("TI_MCP_LOG_LEVEL", "info").lower()
 
 @main_mcp.custom_route("/health", methods=["GET"])
 async def health_check(request: Request):
@@ -25,6 +28,7 @@ async def setup():
         transport="http",
         host="0.0.0.0",
         port=8081,
+        log_level=LOG_LEVEL,
     )
 
 if __name__ == "__main__":
